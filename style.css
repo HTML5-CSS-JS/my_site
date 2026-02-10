@@ -1,0 +1,35 @@
+body {
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background: #fff;
+  color: #111;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* 다크 모드 지원 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+
+  .card {
+    background: #1c1c1e;
+    color: #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+}

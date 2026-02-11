@@ -3,6 +3,7 @@ from fastapi import FastAPI, Response
 
 app = FastAPI()
 
+@app.get("/")
 @app.get("/style.css")
 def get_css():
     css = sass.compile(filename="static/scss/style.scss")

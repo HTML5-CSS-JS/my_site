@@ -1,7 +1,9 @@
-from fastapi import FastAPI
+import sass
+from fastapi import FastAPI, Response
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello World"}
+@app.get("/style.css")
+def get_css():
+    css = sass.compile(filename="static/scss/style.scss")
+    return Response(content=css, media_type="text/css")

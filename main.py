@@ -1,17 +1,20 @@
 import sass
 from fastapi import FastAPI, Response
-from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
+# SCSS → CSS 컴파일 후 반환
 @app.get("/style.css")
-    css = sass.compile(filename="/style.scss")
+def style():
+    css = sass.compile(filename="style.scss")
     return Response(content=css, media_type="text/css")
-# static 디렉토리 연결 (예: style.css, script.js 등)
+
+# 정적 파일 연결 (예: 이미지, JS 등)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
+# index.html 반환
 @app.get("/", response_class=FileResponse)
 def home():
-    return "index.html"
+    return FileResponse("index.html")

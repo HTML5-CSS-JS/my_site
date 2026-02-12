@@ -4,7 +4,6 @@ from fastapi.staticfiles import StaticFiles
 from sass_embedded import compile_file
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/", response_class=FileResponse)
 def home():

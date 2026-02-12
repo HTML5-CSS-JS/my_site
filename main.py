@@ -12,5 +12,6 @@ def home():
 
 @app.get("/style.css")
 def style():
+    # 요청마다 style.scss를 읽고 CSS로 변환
     css = compile_file("style.scss")
     return Response(content=css, media_type="text/css")

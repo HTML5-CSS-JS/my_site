@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/", response_class=FileResponse)
 # 정적 파일 연결 (예: 이미지, JS 등)
-app.mount("/static", StaticFiles(directory="static"), name="static")
+@app.mount("/static", StaticFiles(directory="static"), name="static")
 def home():
     return FileResponse("index.html")
 @app.get("/style.css")
